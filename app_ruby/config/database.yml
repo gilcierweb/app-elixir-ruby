@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: gilcier
+  password: gil123
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: app_elixir_ruby_development
+
+test:
+  <<: *default
+  database: app_elixir_ruby_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] || 'db' %>
+  database: <%= ENV['DATABASE_NAME'] || 'sinatra' %>
+  username: <%= ENV['DATABASE_USER'] || 'sinatra' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'sinatra' %>
