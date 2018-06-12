@@ -11,3 +11,9 @@ gem 'pg'
 gem 'rake'
 gem 'puma'
 gem 'foreman'
+gem 'json'
+gem 'rest-client'
+
+group :development do
+  gem 'tux'
+end

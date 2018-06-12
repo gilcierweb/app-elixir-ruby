@@ -1,40 +1,19 @@
-<ul class="list-unstyled">
-  <li class="media">
-    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-  <li class="media my-4">
-    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-  <li class="media">
-    <img class="mr-3" src=".../64x64" alt="Generic placeholder image">
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">List-based media object</h5>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </div>
-  </li>
-</ul>
+<h3>Listando repositorios destaques</h3>
+<div class="row">
+  <% @repositories.each do |row| %>
 
-<div class="card mb-3">
-  <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <img class="card-img-bottom" src=".../100px180/" alt="Card image cap">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= row.user %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= row.repository %></h6>
+          <p class="card-text">
+            <%= row.user %> - <%= row.repository %> - <%= row.language %></p>
+          <a href="<%= row.url %>" class="card-link" target="_blank"><%= row.repository %></a>
+        </div>
+      </div>
+      <br>
+    </div>
+
+  <% end %>
 </div>

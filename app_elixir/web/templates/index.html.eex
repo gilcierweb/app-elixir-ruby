@@ -13,6 +13,15 @@
 <h1>App Elixir</h1>
 <h1><%= name%></h1>
 
+<form action="/search">
+    <div class="input-group mb-3">
+      <input type="text" name="q" id="q"  class="form-control" placeholder=""/>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Enviar</button>
+      </div>
+    </div>
+</form>
+
 <%= EEx.eval_file("web/templates/partials/_footer.html.eex") %>
 
 </div>

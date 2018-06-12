@@ -21,24 +21,19 @@ defmodule AppElixir.Router do
   end
 
   get "/" do
-    page = EEx.eval_file("web/templates/index.html.eex", [name: 'gilcierweb oliviera de sousa asdfasdkfçkasçdfkasçdfkasdf sdfsdf'])
+    page = EEx.eval_file(
+      "web/templates/index.html.eex",
+      [name: 'gilcierweb']
+    )
     conn
     |> put_resp_content_type("text/html")
     |> send_resp(200, page)
     |> halt
   end
 
-#  get "/" do
-#    #    url = "https://anapioficeandfire.com/api/characters"
-#    url = "https://api.github.com/users/gilcierweb"
-#    # url = api_route(id_or_name)
-#    {:ok, response} = HTTPoison.get(url, [], [])
-#    IO.inspect(response.body)
-#    send_resp(conn, 200, response.body)
-#  end
-
   get "/search" do
-    url = "https://api.github.com/users/gilcierweb/repos"
+    query = URI.encode_query(conn.params)
+    url = "https://api.github.com/search/repositories?#{query}"
     {:ok, response} = HTTPoison.get(url, [], [])
     send_resp(conn, 200, response.body)
   end
@@ -61,22 +56,6 @@ defmodule AppElixir.Router do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(200, Poison.encode!(%{name: name}))
-  end
-
-  post "/about/:name" do
-    send_resp(conn, 200, "#{name} was added to our database of names.")
-  end
-
-  patch "/about/:name" do
-    send_resp(conn, 200, "#{name} was updated in our database of names.")
-  end
-
-  put "/about/:name/promote" do
-    send_resp(conn, 200, "#{name} was promoted.")
-  end
-
-  delete "/about/:name" do
-    send_resp(conn, 200, "#{name} was deleted from database of names.")
   end
 
   match _ do

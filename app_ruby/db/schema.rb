@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_06_11_014348) do
     t.string "user"
     t.string "repository"
     t.string "url"
+    t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

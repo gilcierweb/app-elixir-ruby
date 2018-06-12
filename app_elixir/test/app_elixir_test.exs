@@ -5,4 +5,9 @@ defmodule AppElixirTest do
   test "greets the world" do
     assert AppElixir.hello() == :world
   end
+
+  test "greets the world" do
+    assert AppElixir.hello() == :world
+  end
+
 end
