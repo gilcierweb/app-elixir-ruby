@@ -39,3 +39,10 @@ get '/show/:name' do
   @result = JSON.parse(api_result)
   erb :'home/show.html'
 end
+
+get '/search' do
+  query = params['q'].to_s
+  api_result = RestClient.get "http://localhost:4000/search?q=#{query}"
+  @results = JSON.parse(api_result)
+  erb :'home/search.html'
+end

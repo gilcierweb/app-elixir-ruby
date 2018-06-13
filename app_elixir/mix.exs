@@ -14,7 +14,7 @@ defmodule AppElixir.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:cowboy, :plug, :poison, :logger],
+      extra_applications: [:cowboy, :plug, :poison, :postgrex, :ecto, :logger],
       mod: {AppElixir.Application, []}
     ]
   end

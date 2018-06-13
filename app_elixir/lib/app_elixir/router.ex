@@ -41,7 +41,9 @@ defmodule AppElixir.Router do
   get "/show/:id" do
     url = "https://api.github.com/users/gilcierweb/repos"
     {:ok, response} = HTTPoison.get(url, [], [])
-    send_resp(conn, 200, response.body)
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, response.body)
   end
 
   get "/gilcierweb" do
