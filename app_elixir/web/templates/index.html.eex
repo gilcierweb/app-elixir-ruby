@@ -11,7 +11,10 @@
 <div class="container">
 
 <h1>App Elixir</h1>
-<h1><%= name%></h1>
+<hr>
+<a href="http://localhost:3000" target="_blank" class="btn btn-primary">App Ruby</a>
+
+<h3><%= name%></h3>
 
 <form action="/search">
     <div class="input-group mb-3">

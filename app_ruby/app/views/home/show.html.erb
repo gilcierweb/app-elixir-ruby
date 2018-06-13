@@ -1,14 +1,12 @@
-<% @result.each do |row| %>
-  <h3>Detalhes <%= row['name'] %></h3>
+  <h3>Detalhes <%= @repository.repository %></h3>
   <div class="card">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+
     <div class="card-body">
-      <h5 class="card-title"><%= row['name'] %></h5>
-      <p class="card-text"><%= row['full_name'] %>.</p>
+      <h5 class="card-title"><%= @repository.user %></h5>
+      <p class="card-text"><%= @repository.repository %> - <%= @repository.language %></p>
       <p class="card-text">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <a href="<%= @repository.repository %>" target="_blank" class="text-muted"><%= @repository.url %></a>
       </p>
     </div>
   </div>
   <br>
-<% end %>

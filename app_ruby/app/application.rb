@@ -34,9 +34,8 @@ delete '/' do
 #   .. annihilate something ..
 end
 
-get '/show/:name' do
-  api_result = RestClient.get 'https://api.github.com/users/gilcierweb/repos'
-  @result = JSON.parse(api_result)
+get '/show/:id' do
+  @repository = Repository.find(params[:id])
   erb :'home/show.html'
 end
 
@@ -44,5 +43,13 @@ get '/search' do
   query = params['q'].to_s
   api_result = RestClient.get "http://localhost:4000/search?q=#{query}"
   @results = JSON.parse(api_result)
+  save_repositories(@results['items'])
   erb :'home/search.html'
+end
+
+def save_repositories(data)
+  data.each do |row|
+    row_data = {user: row['name'], repository: row['full_name'], url: row['url'], language: row['language']}
+    Repository.create(row_data)
+  end
 end
