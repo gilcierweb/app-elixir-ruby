@@ -41,7 +41,7 @@ end
 
 get '/search' do
   query = params['q'].to_s
-  api_result = RestClient.get "http://localhost:4000/search?q=#{query}"
+  api_result = RestClient.get "https://app-elixir.herokuapp.com/search?q=#{query}"
   @results = JSON.parse(api_result)
   save_repositories(@results['items'])
   erb :'home/search.html'

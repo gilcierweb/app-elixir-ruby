@@ -12,7 +12,7 @@
 
 <h1>App Elixir</h1>
 <hr>
-<a href="http://localhost:3000" target="_blank" class="btn btn-primary">App Ruby</a>
+<a href="https://app-ruby-sinatra.herokuapp.com/" target="_blank" class="btn btn-primary">App Ruby</a>
 
 <h3><%= name%></h3>
 

@@ -18,7 +18,7 @@ defmodule AppElixir.Application do
     opts = [strategy: :one_for_one, name: AppElixir.Supervisor]
     Supervisor.start_link(children, opts)
 
-    Plug.Adapters.Cowboy2.http(AppElixir.Router, [], [port: 4000])
+    Plug.Adapters.Cowboy2.http(AppElixir.Router, [], [port: String.to_integer(System.get_env("PORT") || "4000")])
 
   end
 end
